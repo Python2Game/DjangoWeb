@@ -17,6 +17,16 @@ def manicure(request):
 def register(request):
     return render(request, 'main/register.html')
 
+def about(request):
+    return render(request, 'main/about.html')
+
+
+def contacts(request):
+    return render(request, 'main/contacts.html')
+
+def go(request):
+    return render(request, 'main/go.html')    
+
 def data(request):
 
     form = RegisterForm()
