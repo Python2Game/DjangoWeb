@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from .forms import RegisterForm
+from .models import Register
 
 def check(request):
     return render(request, 'main/main/check.html')
@@ -14,5 +16,12 @@ def manicure(request):
 
 def register(request):
     return render(request, 'main/register.html')
+
+def data(request):
+
+    form = RegisterForm()
+    date ={'form': form}
+
+    return render(request, 'main/data.html')
 
 
