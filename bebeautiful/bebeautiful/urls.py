@@ -16,39 +16,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.urls import path,include
-from beauty.views import *
-from django.conf.urls.static import static
-from django.conf import settings
-
+from django.contrib import admin
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',Home,name="home"),
-    path('about',About,name="about"),
-    path('contact',Contact,name="contact"),
-    path('login',Login,name="login"),
-    path('logout',Logout,name="logout"),
-    path('login_admin',Admin_Login,name="login_admin"),
-    path('signup',Signup,name="signup"),
-    path('profile',Profile,name="profile"),
-    path('edit_profile',Edit_Profile,name="edit_profile"),
-    path('admin_home',Admin_Home,name="admin_home"),
-    path('view_user',View_user,name="view_user"),
-    path('view_service',View_Service,name="view_service"),
-    path('all_service',All_Service,name="all_service"),
-    path('add_service',Add_Service,name="add_service"),
-    path('book_appointment',Book_Appointment,name="book_appointment"),
-    path('book_select_appointment(<int:pid>)',Book_Selected_Appointment,name="book_select_appointment"),
-    path('view_new_user',View_New_user,name="view_new_user"),
-    path('view_new_appointment',View_New_Appointment,name="view_new_appointment"),
-    path('all_appointment',All_Appointment,name="all_appointment"),
-    path('view_appointment',View_Appointment,name="view_appointment"),
-    path('confirm_appointment',View_Confirm_Appointment,name="confirm_appointment"),
-    path('change_password',Change_Password,name="change_password"),
-    path('assign_user_status(<int:pid>)',Assign_user_status,name="assign_user_status"),
-    path('assign_book_status(<int:pid>)',Assign_book_status,name="assign_book_status"),
-    path('delete_appointment(<int:pid>)',delete_appointment,name="delete_appointment"),
-    path('delete_service(<int:pid>)',delete_service,name="delete_service"),
-    path('delete_user(<int:pid>)',delete_user,name="delete_user"),
-    path('payment(<int:pid>)',payment,name="payment"),
-]+static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
+    path('', include('main.urls')),
+]
