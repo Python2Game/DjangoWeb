@@ -1,0 +1,35 @@
+{% extends 'navigation.html' %}
+{% load static %}
+{% block body %}
+
+<center><h2 style="color:black;margin-top:4%;">Данные пользователей</h2></center>
+<center>
+<div class="container">
+<table class="table table-bordered" id="myTable">
+  <thead>
+    <tr>
+      <th>Полное имя</th>
+      <th>Контакты</th>
+      <th>Почта</th>
+      <th>Статус</th>
+      <th>Действие</th>
+    </tr>
+  </thead>
+   
+<tbody>
+{% for i in user %}
+    <tr>
+      <td>{{i.user.first_name}} {{i.user.last_name}}</td>
+      <td>{{i.mobile}}</td>
+      <td>{{i.user.username}}</td>
+      <td>{{i.status.status}}</td>
+      <td><a href="{% url 'delete_user' i.user.id %}" ><button class="btn btn-danger">удалить</button></a></td>
+    </tr>
+{% endfor %}
+</tbody>
+
+</table>
+
+</div></center>
+
+{% endblock %}
