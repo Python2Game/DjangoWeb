@@ -12,5 +12,7 @@ urlpatterns = [
     path('contacts', views.contacts),
     path('go', views.go)
 
+
+
     
 ]
