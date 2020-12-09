@@ -262,18 +262,6 @@ def delete_user(request,pid):
     data.delete()
     return redirect('view_user')
 
-def payment(request,pid):
-    if not request.user.is_authenticated:
-        return redirect('login')
-    user = User.objects.get(id=request.user.id)
-    profile= Customer.objects.get(user=user)
-    book = Apponitment.objects.get(id=pid)
-    sta = Booking_Paid.objects.get(paid="paid")
-    book.paid = sta
-    book.save()
-    d ={'book':book}
-    return render(request,'payment.html',d)
-
 def Change_Password(request):
     if not request.user.is_authenticated:
         return redirect('login')
