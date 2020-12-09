@@ -164,8 +164,7 @@ def Add_Service(request):
     if request.method == 'POST':
         s = request.POST['service']
         c = request.POST['cost']
-        i = request.FILES['image']
-        ser = Servise.objects.create(image=i,cost=c,name=s)
+        ser = Servise.objects.create(cost=c,name=s)
         error = True
     d = {'error':error}
     return render(request,'add_service.html',d)

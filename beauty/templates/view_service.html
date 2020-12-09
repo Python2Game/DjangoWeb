@@ -9,21 +9,21 @@
     <th></th>
     <th>Имя сервиса</th>
     <th>Цена</th>
-    <th>Фото</th>
     <th>Действие</th>
   </tr>
   </thead>
    
-<tbody>
-{% for i in service %}
+   <tbody>
+
+    {% for i in service %}
   <tr>
     <td>{{forloop.counter}}</td>
     <td>{{i.name}}</td>
-    <td><img src="{{i.image.url}}" style="width:100px;height:110px"></td>
     <td>{{i.cost}}</td>
-    <td><a href="{% url 'delete_service' i.id %}"><button class="btn btn-danger">Удалить</button></a></td>
+    <td><a href="{% url 'delete_service' i.id %}"><button class="btn btn-danger" onclick="return confirm('Удалить?')">Удалить</button></a></td>
   </tr>
-{% endfor %}
-</tbody>
+
+    {% endfor %}
+    </tbody>
 </table>
 {% endblock %}
